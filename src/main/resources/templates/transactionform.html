@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>transactionform</title>
+</head>
+<body>
+<h1>Enter transaction</h1>
+
+<form action="/save" th:object="${transaction}" method="POST">
+    Category: <input type="text" th:field="*{category}"/>
+    Amount: <input type="text" th:field="*{amount}"/>
+    Date: <input type="text" th:field="*{date}"/>
+    <input type="submit" value="Save transaction">
+</form>
+<table style="text-align:left">
+    <tr>
+        <th>Category</th>
+        <th>Amount</th>
+        <th>Date</th>
+    </tr>
+    <tr th:each="transaction : ${transactionList}">
+       <th th:text="${transaction.category}"></th>
+        <th th:text="${transaction.amount}"></th>
+        <th th:text="${transaction.date}"></th>
+    </tr>
+</table>
+
+</body>
+</html>
