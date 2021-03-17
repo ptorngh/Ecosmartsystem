@@ -1,13 +1,8 @@
 package com.example.Ecosmartsystem;
-
-
-import org.assertj.core.api.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import org.junit.Assert;
-import org.junit.Test;
-import org.springframework.util.Assert;
 
 
 @SpringBootTest
@@ -17,18 +12,15 @@ class EcosmartsystemApplicationTests {
 	void contextLoads() {
 	}
 
+	@Autowired
+	private TransactionRepository transactionRepository;
+
 	@Test
 	void addTransactionTest() {
+	Transaction transactionTest = new Transaction();
 
-		Assert.assertEquals(19, Methods.addTransaction(new int[] {4, 11, 15}, false)); // 4+15
-
-		Assert.
-
+		Assertions.assertEquals(transactionTest.getDate(), transactionRepository.addTransaction(new Transaction(Category.RESIDENCE, 3000, 20210110)));
 	}
-
-	}
-
-	public Transaction addTransaction(Transaction transaction) {
-		transactionList.add(0,transaction);
-		return transaction;
 }
+
+
