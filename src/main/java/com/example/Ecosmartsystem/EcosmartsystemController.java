@@ -32,12 +32,24 @@ public class EcosmartsystemController {
     }
 
     @PostMapping("/save")
-    public String save(@ModelAttribute Transaction transaction) {
-        transactionRepository.addBook(transaction);
-        return "redirect:/";
+    public String save(Model model, @ModelAttribute Transaction transaction) {
+        transactionRepository.addTransaction(transaction);
+        model.addAttribute("transaction", new Transaction());
+        model.addAttribute("transactionList", transactionRepository.getTransactionList());
+        return "transactionform";
     }
 
+    @GetMapping("/display")
+    public String displayTransactions (Model model)  {
+        model.addAttribute("transaction", new Transaction());
+        model.addAttribute("RESIDENCE", transactionRepository.totalPerCategory(Category.RESIDENCE));
+        model.addAttribute("PLEASURE", transactionRepository.totalPerCategory(Category.PLEASURE));
+        model.addAttribute("TRANSPORTATION", transactionRepository.totalPerCategory(Category.TRANSPORTATION));
+        return "display";
+    }
 
-
-
+    @GetMapping("/aboutus")
+    public String aboutUs()  {
+        return "aboutus";
+    }
 }

@@ -8,7 +8,15 @@
 <h1>Enter transaction</h1>
 
 <form action="/save" th:object="${transaction}" method="POST">
-    Category: <input type="text" th:field="*{category}"/>
+
+
+    Category:
+    <select input type="text" th:field="*{category}"/>
+        <option>RESIDENCE</option>
+        <option>PLEASURE</option>
+        <option>TRANSPORTATION</option>
+    </select>
+
     Amount: <input type="text" th:field="*{amount}"/>
     Date: <input type="text" th:field="*{date}"/>
     <input type="submit" value="Save transaction">
@@ -25,6 +33,6 @@
         <th th:text="${transaction.date}"></th>
     </tr>
 </table>
-
+<br><h2><a href="/">Back</a></h2>
 </body>
 </html>

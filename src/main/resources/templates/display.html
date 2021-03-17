@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Display</title>
+</head>
+<body>
+<h1>Display Ecosmart transactions</h1>
+
+<table style="text-align:left">
+    <tr>
+        <th>Category</th>
+        <th>Sum</th>
+    </tr>
+    <tr>
+        <td>RESIDENCE: </td>
+        <td th:text="${RESIDENCE}"></td>
+    </tr>
+    <tr>
+        <td>PLEASURE: </td>
+        <td th:text="${PLEASURE}"></td>
+    </tr>
+    <tr>
+        <td>TRANSPORTATION: </td>
+        <td th:text="${TRANSPORTATION}"></td>
+    </tr>
+</table>
+<br><h2><a href="/">Back</a></h2>
+</body>
+</html>
