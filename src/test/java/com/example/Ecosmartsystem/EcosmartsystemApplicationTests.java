@@ -17,9 +17,9 @@ class EcosmartsystemApplicationTests {
 
 	@Test
 	void addTransactionTest() {
-	Transaction transactionTest = new Transaction();
+	transactionRepository.addTransaction(new Transaction(Category.TEST, 3000, 20210110));
 
-		Assertions.assertEquals(transactionTest.getDate(), transactionRepository.addTransaction(new Transaction(Category.RESIDENCE, 3000, 20210110)));
+		Assertions.assertEquals(3000, transactionRepository.totalPerCategory(Category.TEST));
 	}
 }
 
