@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>transactionform</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body>
+<body style="background-color:LightSteelBlue;margin-left: 20px;padding:10px">
+<h3><a href="/">Back</a></h3><br>
 <h1>Enter transaction</h1>
+<br>
 
 <form action="/save" th:object="${transaction}" method="POST">
 
@@ -21,18 +24,20 @@
     Date: <input type="text" th:field="*{date}"/>
     <input type="submit" value="Save transaction">
 </form>
-<table style="text-align:left">
+<table style="text-align:left;margin-left: 70px;">
+
     <tr>
-        <th>Category</th>
-        <th>Amount</th>
-        <th>Date</th>
+        <th style="width: 225px;"></th>
+        <th style="width: 230px;"></th>
+        <th></th>
     </tr>
     <tr th:each="transaction : ${transactionList}">
        <th th:text="${transaction.category}"></th>
         <th th:text="${transaction.amount}"></th>
         <th th:text="${transaction.date}"></th>
     </tr>
+
 </table>
-<br><h2><a href="/">Back</a></h2>
+
 </body>
 </html>

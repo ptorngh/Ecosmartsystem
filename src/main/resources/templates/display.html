@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Display</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body>
-<h1>Display Ecosmart transactions</h1>
+<body style="background-color:LightSteelBlue;margin-left: 20px;padding:10px">
+<h3><a href="/">Back</a></h3><br>
+<h1>Display Ecosmart transactions</h1><br>
 
 <table style="text-align:left">
     <tr>
-        <th>Category</th>
+        <th style="width: 225px;">Category</th>
         <th>Sum</th>
     </tr>
     <tr>
@@ -25,6 +27,6 @@
         <td th:text="${TRANSPORTATION}"></td>
     </tr>
 </table>
-<br><h2><a href="/">Back</a></h2>
+
 </body>
 </html>
