@@ -1,7 +1,6 @@
 package com.example.Ecosmartsystem;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
@@ -38,7 +37,7 @@ public class DBTransactionRepository {
         try {
             Connection conn  = dataSource.getConnection();
             Statement stmt= conn.createStatement();
-            stmt.executeUpdate("INSERT INTO TRANSACTION (CATEGORY, AMOUNT, DATE) VALUES('" + transaction.getCategory() + "','"  + transaction.getAmount() + "','" + transaction.getDate() + "')");
+            stmt.executeUpdate("INSERT INTO TRANSACTION (CATEGORYID, AMOUNT, DATE) VALUES('" + transaction.getCategoryid() + "','"  + transaction.getAmount() + "','" + transaction.getDate() + "')");
         } catch(SQLException e) {
             e.printStackTrace();
         }
@@ -63,7 +62,7 @@ public class DBTransactionRepository {
 
     private Transaction rsTransaction(ResultSet rs) throws SQLException {
         return new Transaction(rs.getInt("ID"),
-                rs.getString("CATEGORY"),
+                rs.getInt("CATEGORYID"),
                 rs.getInt("AMOUNT"),
                 rs.getInt("DATE"));
     }

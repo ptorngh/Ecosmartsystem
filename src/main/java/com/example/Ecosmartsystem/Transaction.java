@@ -4,7 +4,7 @@ public class Transaction {
 
  private int id;
 // private Category category;
- private String category;
+ private int categoryid;
  private int amount;
  private int date;
 
@@ -12,9 +12,9 @@ public class Transaction {
 
  }
 
- public Transaction(int id, String category, int amount, int date) {
+ public Transaction(int id, int categoryid, int amount, int date) {
   this.id =  id;
-  this.category = category;
+  this.categoryid = categoryid;
   this.amount = amount;
   this.date = date;
  }
@@ -27,12 +27,12 @@ public class Transaction {
   this.id = id;
  }
 
- public String getCategory() {
-  return category;
+ public int getCategoryid() {
+  return categoryid;
  }
 
- public void setCategory(String category) {
-  this.category = category;
+ public void setCategoryid(int categoryid) {
+  this.categoryid = categoryid;
  }
 
  public int getAmount() {
