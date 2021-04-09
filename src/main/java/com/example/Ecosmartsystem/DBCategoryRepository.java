@@ -34,12 +34,25 @@ public class DBCategoryRepository {
     }
 
 
-
-
-
     private Category rsCategory(ResultSet rs) throws SQLException {
         return new Category(rs.getInt("ID"),
                 rs.getString("NAME"));
+    }
+
+    private Category getCategoryName (int categoryid) {
+        Category category1 = new Category();
+        try (Connection conn = dataSource.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT * FROM CATEGORY WHERE ID = '" + categoryid + "'")) {
+
+            while (rs.next()) {
+                category1 = rsCategory(rs);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return category1;
     }
 
 }
