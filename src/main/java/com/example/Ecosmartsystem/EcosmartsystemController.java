@@ -44,9 +44,9 @@ public class EcosmartsystemController {
     @GetMapping("/display")
     public String displayTransactions (Model model)  {
         model.addAttribute("transaction", new Transaction());
-        model.addAttribute("RESIDENCE", transactionRepository.totalPerCategory(Category.RESIDENCE));
-        model.addAttribute("PLEASURE", transactionRepository.totalPerCategory(Category.PLEASURE));
-        model.addAttribute("TRANSPORTATION", transactionRepository.totalPerCategory(Category.TRANSPORTATION));
+        model.addAttribute("RESIDENCE", transactionRepository.totalPerCategory("RESIDENCE"));
+        model.addAttribute("PLEASURE", transactionRepository.totalPerCategory("PLEASURE"));
+        model.addAttribute("TRANSPORTATION", transactionRepository.totalPerCategory("TRANSPORTATION"));
         return "display";
     }
 
