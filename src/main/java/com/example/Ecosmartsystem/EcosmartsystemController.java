@@ -31,7 +31,6 @@ public class EcosmartsystemController {
         return "transactionform";
     }
 
-/*
     @PostMapping("/save")
     public String save(Model model, @ModelAttribute Transaction transaction) {
         transactionRepository.addTransaction(transaction);
@@ -39,7 +38,6 @@ public class EcosmartsystemController {
         model.addAttribute("transactionList", transactionRepository.getTransactionList());
         return "transactionform";
     }
-*/
 
     @GetMapping("/display")
     public String displayTransactions (Model model)  {
