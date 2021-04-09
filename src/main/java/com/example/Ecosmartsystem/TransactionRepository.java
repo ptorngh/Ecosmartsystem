@@ -1,3 +1,4 @@
+/*
 package com.example.Ecosmartsystem;
 
 import org.springframework.stereotype.Service;
@@ -41,3 +42,5 @@ public class TransactionRepository {
         return sum;
     }
 }
+
+*/

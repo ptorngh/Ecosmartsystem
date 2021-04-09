@@ -15,7 +15,7 @@ import java.util.List;
 public class EcosmartsystemController {
 
     @Autowired
-    private TransactionRepository transactionRepository;
+    private DBTransactionRepository transactionRepository;
 
 
     @GetMapping("/")
@@ -31,6 +31,7 @@ public class EcosmartsystemController {
         return "transactionform";
     }
 
+/*
     @PostMapping("/save")
     public String save(Model model, @ModelAttribute Transaction transaction) {
         transactionRepository.addTransaction(transaction);
@@ -38,6 +39,7 @@ public class EcosmartsystemController {
         model.addAttribute("transactionList", transactionRepository.getTransactionList());
         return "transactionform";
     }
+*/
 
     @GetMapping("/display")
     public String displayTransactions (Model model)  {
@@ -47,6 +49,7 @@ public class EcosmartsystemController {
         model.addAttribute("TRANSPORTATION", transactionRepository.totalPerCategory(Category.TRANSPORTATION));
         return "display";
     }
+
 
     @GetMapping("/aboutus")
     public String aboutUs()  {
