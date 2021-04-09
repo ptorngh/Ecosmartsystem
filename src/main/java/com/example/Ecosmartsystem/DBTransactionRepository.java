@@ -43,11 +43,11 @@ public class DBTransactionRepository {
         }
     }
 
-    public int totalPerCategory(String Category) {
+    public int totalPerCategory(int categoryid) {
         int sum = 0;
         try (Connection conn = dataSource.getConnection();
              Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT * FROM TRANSACTION WHERE CATEGORY = '" + Category + "'")) {
+             ResultSet rs = stmt.executeQuery("SELECT * FROM TRANSACTION WHERE CATEGORYID = '" + categoryid + "'")) {
 
             while (rs.next()) {
                 sum = rsTransaction(rs).getAmount() + sum;

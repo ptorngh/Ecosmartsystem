@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -17,6 +18,8 @@ public class EcosmartsystemController {
     @Autowired
     private DBTransactionRepository transactionRepository;
 
+    @Autowired
+    private DBCategoryRepository categoryRepository;
 
     @GetMapping("/")
     public String main()  {
@@ -42,9 +45,18 @@ public class EcosmartsystemController {
     @GetMapping("/display")
     public String displayTransactions (Model model)  {
         model.addAttribute("transaction", new Transaction());
-        model.addAttribute("RESIDENCE", transactionRepository.totalPerCategory("RESIDENCE"));
+
+        List<Category> cList = new ArrayList<>();
+
+        cList = categoryRepository.getCategoryList();
+
+        for(Category e: cList) {
+            model.addAttribute(e.getName(), transactionRepository.totalPerCategory(e.getId()));
+
+        }
+      /*  model.addAttribute("RESIDENCE", transactionRepository.totalPerCategory("RESIDENCE"));
         model.addAttribute("PLEASURE", transactionRepository.totalPerCategory("PLEASURE"));
-        model.addAttribute("TRANSPORTATION", transactionRepository.totalPerCategory("TRANSPORTATION"));
+        model.addAttribute("TRANSPORTATION", transactionRepository.totalPerCategory("TRANSPORTATION")); */
         return "display";
     }
 
