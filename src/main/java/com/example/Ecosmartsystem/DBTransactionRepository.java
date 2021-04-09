@@ -22,7 +22,7 @@ public class DBTransactionRepository {
         List<Transaction> transactionList = new ArrayList<>();
         try (Connection conn = dataSource.getConnection();
              Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT * FROM TRANSACTION ORDER BY DATE")) {
+             ResultSet rs = stmt.executeQuery("SELECT * FROM TRANSACTION ORDER BY ID DESC")) {
 
             while (rs.next()) {
                 transactionList.add(rsTransaction(rs));
@@ -35,19 +35,13 @@ public class DBTransactionRepository {
     }
 
     public void addTransaction(Transaction transaction) {
-        try (Connection conn = dataSource.getConnection();
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT * FROM TRANSACTION WHERE CATEGORY = '" + Category + "'")) {
-
-            while (rs.next()) {
-                sum = rsTransaction(rs).getAmount() + sum;
-            }
-
-        } catch (SQLException e) {
+        try {
+            Connection conn  = dataSource.getConnection();
+            Statement stmt= conn.createStatement();
+            stmt.executeUpdate("INSERT INTO TRANSACTION (CATEGORY, AMOUNT, DATE) VALUES('" + transaction.getCategory() + "','"  + transaction.getAmount() + "','" + transaction.getDate() + "')");
+        } catch(SQLException e) {
             e.printStackTrace();
         }
-
-        return sum;
     }
 
     public int totalPerCategory(String Category) {
