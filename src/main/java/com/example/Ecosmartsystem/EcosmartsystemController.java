@@ -29,6 +29,8 @@ public class EcosmartsystemController {
     public String transactionform(Model model)  {
         model.addAttribute("transaction", new Transaction());
         model.addAttribute("transactionList", transactionRepository.getTransactionList());
+        model.addAttribute("category", new Category());
+        model.addAttribute("categoryList", categoryRepository.getCategoryList());
         return "transactionform";
     }
 
@@ -37,6 +39,8 @@ public class EcosmartsystemController {
         transactionRepository.addTransaction(transaction);
         model.addAttribute("transaction", new Transaction());
         model.addAttribute("transactionList", transactionRepository.getTransactionList());
+        model.addAttribute("category", new Category());
+        model.addAttribute("categoryList", categoryRepository.getCategoryList());
         return "transactionform";
     }
 

@@ -15,9 +15,9 @@
 
     Category:
     <select input type="text" th:field="*{categoryid}"/>
-        <option value="1001">RESIDENCE</option>
-        <option value="1002">PLEASURE</option>
-        <option value="1003">TRANSPORTATION</option>
+        <option th:each="category:${categoryList}" th:value="${category.id}" th:text="${category.name}"></option>
+
+
     </select>
 
     Amount: <input type="text" th:field="*{amount}"/>

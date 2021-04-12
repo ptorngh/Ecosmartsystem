@@ -18,8 +18,7 @@ public class Transaction {
   this.amount = amount;
   this.date = date;
  }
-
- public int getId() {
+  public int getId() {
   return id;
  }
 
@@ -50,5 +49,6 @@ public class Transaction {
  public void setDate(int date) {
   this.date = date;
  }
+
 }
 
