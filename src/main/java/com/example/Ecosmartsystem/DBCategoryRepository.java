@@ -39,7 +39,7 @@ public class DBCategoryRepository {
                 rs.getString("NAME"));
     }
 
-    private Category getCategoryName (int categoryid) {
+    public Category getCategoryName (int categoryid) {
         Category category1 = new Category();
         try (Connection conn = dataSource.getConnection();
              Statement stmt = conn.createStatement();

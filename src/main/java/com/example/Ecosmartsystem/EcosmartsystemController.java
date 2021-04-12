@@ -31,6 +31,16 @@ public class EcosmartsystemController {
         model.addAttribute("transactionList", transactionRepository.getTransactionList());
         model.addAttribute("category", new Category());
         model.addAttribute("categoryList", categoryRepository.getCategoryList());
+        for (Transaction d:transactionRepository.getTransactionList()){
+            model.addAttribute("transaction", new Transaction());
+            categoryRepository.getCategoryName(d.getCategoryid());
+
+            model.addAttribute (d.getName(), transactionRepository.totalPerCategory(e.getId()));
+
+        }
+
+
+        )
         return "transactionform";
     }
 
