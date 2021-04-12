@@ -31,10 +31,10 @@
         <th style="width: 230px;"></th>
         <th></th>
     </tr>
-    <tr th:each="DTOtransaction : ${DTOtransactionList}">
-       <th th:text="${DTOtransaction.categoryname}"></th>
-        <th th:text="${DTOtransaction.amount}"></th>
-        <th th:text="${DTOtransaction.date}"></th>
+    <tr th:each="DTOtransaction : ${DTOtransaction}">
+       <th th:text="${DTOtransaction.categoryname}">a</th>
+        <th th:text="${DTOtransaction.amount}">b</th>
+        <th th:text="${DTOtransaction.date}">c</th>
     </tr>
 
 </table>

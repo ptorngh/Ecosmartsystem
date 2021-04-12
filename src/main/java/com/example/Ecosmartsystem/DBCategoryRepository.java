@@ -39,7 +39,7 @@ public class DBCategoryRepository {
                 rs.getString("NAME"));
     }
 
-    public Category getCategoryName (int categoryid) {
+    public String getCategoryName (int categoryid) {
         Category category1 = new Category();
         try (Connection conn = dataSource.getConnection();
              Statement stmt = conn.createStatement();
@@ -52,7 +52,7 @@ public class DBCategoryRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return category1;
+        return category1.getName();
     }
 
 }

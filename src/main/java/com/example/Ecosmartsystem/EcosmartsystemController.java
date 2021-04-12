@@ -31,16 +31,15 @@ public class EcosmartsystemController {
         model.addAttribute("transactionList", transactionRepository.getTransactionList());
         model.addAttribute("category", new Category());
         model.addAttribute("categoryList", categoryRepository.getCategoryList());
+
+
+        List<DTOtransaction> DTOtransactionList = new ArrayList<>();
         for (Transaction d:transactionRepository.getTransactionList()){
-            model.addAttribute("transaction", new Transaction());
-            categoryRepository.getCategoryName(d.getCategoryid());
-
-            model.addAttribute (d.getName(), transactionRepository.totalPerCategory(e.getId()));
-
+            DTOtransaction dtotransaction = new DTOtransaction(d.getId(), d.getAmount(), d.getDate(), d.getCategoryid(), categoryRepository.getCategoryName(d.getCategoryid()));
+            DTOtransactionList.add(dtotransaction);
         }
+        model.addAttribute("DTOtransaction", DTOtransactionList);
 
-
-        )
         return "transactionform";
     }
 
@@ -51,6 +50,14 @@ public class EcosmartsystemController {
         model.addAttribute("transactionList", transactionRepository.getTransactionList());
         model.addAttribute("category", new Category());
         model.addAttribute("categoryList", categoryRepository.getCategoryList());
+
+        List<DTOtransaction> DTOtransactionList = new ArrayList<>();
+        for (Transaction d:transactionRepository.getTransactionList()){
+            DTOtransaction dtotransaction = new DTOtransaction(d.getId(), d.getAmount(), d.getDate(), d.getCategoryid(), categoryRepository.getCategoryName(d.getCategoryid()));
+            DTOtransactionList.add(dtotransaction);
+        }
+        model.addAttribute("DTOtransaction", DTOtransactionList);
+
         return "transactionform";
     }
 
