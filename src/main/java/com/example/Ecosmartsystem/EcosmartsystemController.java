@@ -32,7 +32,6 @@ public class EcosmartsystemController {
         model.addAttribute("category", new Category());
         model.addAttribute("categoryList", categoryRepository.getCategoryList());
 
-
         List<DTOtransaction> DTOtransactionList = new ArrayList<>();
         for (Transaction d:transactionRepository.getTransactionList()){
             DTOtransaction dtotransaction = new DTOtransaction(d.getId(), d.getAmount(), d.getDate(), d.getCategoryid(), categoryRepository.getCategoryName(d.getCategoryid()));
@@ -73,9 +72,6 @@ public class EcosmartsystemController {
             model.addAttribute(e.getName(), transactionRepository.totalPerCategory(e.getId()));
 
         }
-      /*  model.addAttribute("RESIDENCE", transactionRepository.totalPerCategory("RESIDENCE"));
-        model.addAttribute("PLEASURE", transactionRepository.totalPerCategory("PLEASURE"));
-        model.addAttribute("TRANSPORTATION", transactionRepository.totalPerCategory("TRANSPORTATION")); */
         return "display";
     }
 

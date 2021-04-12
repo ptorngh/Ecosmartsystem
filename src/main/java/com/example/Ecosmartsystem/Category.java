@@ -11,7 +11,6 @@ public class Category {
     }
 
     public Category() {
-
     }
 
     public int getId() {
@@ -30,6 +29,3 @@ public class Category {
         this.name = name;
     }
 }
-
-
-

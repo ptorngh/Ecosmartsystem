@@ -15,7 +15,6 @@ public class DTOtransaction {
         this.categoryname = categoryname;
     }
     public DTOtransaction() {
-
     }
 
     public int getId() {

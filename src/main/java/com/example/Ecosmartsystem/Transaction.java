@@ -3,13 +3,11 @@ package com.example.Ecosmartsystem;
 public class Transaction {
 
  private int id;
-// private Category category;
  private int categoryid;
  private int amount;
  private int date;
 
  public Transaction() {
-
  }
 
  public Transaction(int id, int categoryid, int amount, int date) {
@@ -18,6 +16,7 @@ public class Transaction {
   this.amount = amount;
   this.date = date;
  }
+
   public int getId() {
   return id;
  }
@@ -51,4 +50,3 @@ public class Transaction {
  }
 
 }
-

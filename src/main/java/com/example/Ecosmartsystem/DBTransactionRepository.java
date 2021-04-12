@@ -23,9 +23,9 @@ public class DBTransactionRepository {
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery("SELECT * FROM TRANSACTION ORDER BY ID DESC")) {
 
-            while (rs.next()) {
-                transactionList.add(rsTransaction(rs));
-            }
+             while (rs.next()) {
+                 transactionList.add(rsTransaction(rs));
+             }
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -38,6 +38,7 @@ public class DBTransactionRepository {
             Connection conn  = dataSource.getConnection();
             Statement stmt= conn.createStatement();
             stmt.executeUpdate("INSERT INTO TRANSACTION (CATEGORYID, AMOUNT, DATE) VALUES('" + transaction.getCategoryid() + "','"  + transaction.getAmount() + "','" + transaction.getDate() + "')");
+
         } catch(SQLException e) {
             e.printStackTrace();
         }
@@ -49,9 +50,9 @@ public class DBTransactionRepository {
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery("SELECT * FROM TRANSACTION WHERE CATEGORYID = '" + categoryid + "'")) {
 
-            while (rs.next()) {
-                sum = rsTransaction(rs).getAmount() + sum;
-            }
+             while (rs.next()) {
+                 sum = rsTransaction(rs).getAmount() + sum;
+             }
 
         } catch (SQLException e) {
             e.printStackTrace();

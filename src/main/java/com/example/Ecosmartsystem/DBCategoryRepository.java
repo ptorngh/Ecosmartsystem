@@ -33,7 +33,6 @@ public class DBCategoryRepository {
         return categoryList;
     }
 
-
     private Category rsCategory(ResultSet rs) throws SQLException {
         return new Category(rs.getInt("ID"),
                 rs.getString("NAME"));
@@ -45,9 +44,9 @@ public class DBCategoryRepository {
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery("SELECT * FROM CATEGORY WHERE ID = '" + categoryid + "'")) {
 
-            while (rs.next()) {
-                category1 = rsCategory(rs);
-            }
+             while (rs.next()) {
+                 category1 = rsCategory(rs);
+             }
 
         } catch (SQLException e) {
             e.printStackTrace();
